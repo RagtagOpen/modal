@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Example web page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1>Example page</h1>
+    <p>
+      This is an example web page with some content.
+      The form will show up on top of this.
+    </p>
+
+    <!-- copy and paste this part into your page -->
+
+      <!-- this is the modal content, hidden by default  -->
+      <div id="modal-content" style="display:none">
+        <script type="text/javascript" src="https://d1aqhv4sn5kxtx.cloudfront.net/actiontag/at.js"></script>
+        <div class="ngp-form" data-id="6161860998914902528">
+      </div>
+      <!-- end modal content -->
+
+      <!-- modal styles, put this in the <head> tag if you like -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.11.0/tingle.css" integrity="sha256-okpcZlVK+AB44YMCVbx3xvYg3qQ1yTBBcxVahliHVfo=" crossorigin="anonymous" />
+
+      <!-- modal js code -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.11.0/tingle.min.js"></script>
+      <script>
+        var modal = new tingle.modal();
+        modal.setContent(document.getElementById('modal-content').innerHTML)
+
+        // ngp-van specific stuff (resize post-render)
+        window.nvtag_callbacks = window.nvtag_callbacks || {};
+        var nvtag_callbacks = window.nvtag_callbacks;
+        nvtag_callbacks.postRender = nvtag_callbacks.postRender || [];
+        nvtag_callbacks.postRender.push(function() {
+          modal.checkOverflow()
+        });
+
+        // open it as soon as the page loads
+        modal.open();
+
+      </script>
+
+    <!-- end of copy and paste section -->
+
+  </body>
+</html>
