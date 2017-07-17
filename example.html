@@ -23,6 +23,25 @@
 
       <!-- modal styles, put this in the <head> tag if you like -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.11.0/tingle.css" integrity="sha256-okpcZlVK+AB44YMCVbx3xvYg3qQ1yTBBcxVahliHVfo=" crossorigin="anonymous" />
+      <style media="screen">
+        /** additional styles to make the button show up in safari per https://github.com/robinparisi/tingle/issues/42 **/
+        @media (max-width : 540px) {
+        .tingle-modal {
+          overflow: visible;
+        }
+        .tingle-modal--overflow {
+          height: calc(100% - 60px);
+        }
+        .tingle-modal-box {
+          height: 100%;
+        }
+        .tingle-modal-box__content {
+          height: 100%;
+          overflow-y: scroll;
+          -webkit-overflow-scrolling: touch;
+        }
+      }
+      </style>
 
       <!-- modal js code -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.11.0/tingle.min.js"></script>
